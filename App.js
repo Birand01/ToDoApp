@@ -1,23 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Button } from 'react-native';
+import { StyleSheet, Text, View,ScrollView } from 'react-native';
 import React,{useState} from 'react';
 
 export default function App() {
-  const[name,setName]=useState("Birand");
-  const[person,setPerson]=useState({name:"Mario",age:40});
-  const clickHandler=()=>
-  {
-    setName("Kilinc");
-    setPerson({name:"HAWAGI",age:45});
-  }
-
+  const [people, setPeople] = useState([
+    { name: 'shaun', key: '1' },
+    { name: 'yoshi', key: '2' },
+    { name: 'mario', key: '3' },
+    { name: 'luigi', key: '4' },
+    { name: 'peach', key: '5' },
+    { name: 'toad', key: '6' },
+    { name: 'bowser', key: '7' },
+  ]);
+ 
   return (
     <View style={styles.container}>
-    <Text>My name is {name}</Text>
-    <Text>His name is {person.name} and his age is {person.age}</Text>
-     <View style={styles.buttonContainer}>
-      <Button title="UpdateState" onPress={clickHandler}/>
-     </View>
+
+      <ScrollView>
+      {people.map((item)=>{
+        return(
+
+          <View  key={item.key}>
+            <Text style={styles.item}>{item.name}</Text>
+          </View>
+
+        )
+
+
+      })}
+      </ScrollView>
     </View>
   );
 }
@@ -26,12 +37,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    //alignItems: 'center',
+    //justifyContent: 'center',
+    paddingTop:40,
+    paddingHorizontal:20
   },
-  buttonContainer:
+  item:
   {
-    marginTop:20
+    marginTop:40,
+    padding:30,
+    backgroundColor:"pink",
+    fontSize:25,
   }
+ 
 });
  
