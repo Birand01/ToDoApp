@@ -1,6 +1,8 @@
 
-import { StyleSheet, Text, View,FlatList} from 'react-native';
+import { StyleSheet, Text, View,FlatList,Button} from 'react-native';
 import React,{useState} from 'react';
+
+
 import Header from './components/Header';
 import ToDoItem from './components/ToDoItem';
 import AddToDo from './components/AddToDo';
@@ -21,15 +23,12 @@ export default function App() {
     return prevToDos.filter(todo=>todo.key!=key)
   })
  }
- const submitToDo=(text)=>
- {
-  setToDos((prevToDos)=>
-  {
-    return 
-    [
+ const submitHandler=(text)=>{
+  setToDos((prevToDos)=>{ 
+    return [
       {text:text,key:Math.random().toString()},
       ...prevToDos
-    ]
+    ];
    
   })
  }
@@ -38,7 +37,7 @@ export default function App() {
     <View style={styles.container}>
       <Header/>
     <View style={styles.content}> 
-      <AddToDo/>
+      <AddToDo submitHandler={submitHandler}/>
     <View style={styles.list}>
     <FlatList
     data={toDos}
