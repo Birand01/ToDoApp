@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View,FlatList,Button} from 'react-native';
+import { StyleSheet, Text, View,FlatList,Alert} from 'react-native';
 import React,{useState} from 'react';
 
 
@@ -24,13 +24,23 @@ export default function App() {
   })
  }
  const submitHandler=(text)=>{
-  setToDos((prevToDos)=>{ 
-    return [
-      {text:text,key:Math.random().toString()},
-      ...prevToDos
-    ];
-   
-  })
+  if(text.length>3)
+  {
+    setToDos((prevToDos)=>{ 
+      return [
+        {text:text,key:Math.random().toString()},
+        ...prevToDos
+      ];
+     
+    })
+  }
+  else
+  {
+    Alert.alert("OOPS!!","ToDos must be over 3 chars long",[
+      {text:"Understood",onPress:()=>console.log("alert closed")}
+    ])
+  }
+  
  }
  
   return (
