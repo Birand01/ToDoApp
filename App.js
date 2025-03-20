@@ -1,52 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,TouchableOpacity,FlatList } from 'react-native';
+
+import { StyleSheet, Text, View,FlatList} from 'react-native';
 import React,{useState} from 'react';
 
 export default function App() {
-  const [people, setPeople] = useState([
-    { name: 'shaun', key: '1' },
-    { name: 'yoshi', key: '2' },
-    { name: 'mario', key: '3' },
-    { name: 'luigi', key: '4' },
-    { name: 'peach', key: '5' },
-    { name: 'toad', key: '6' },
-    { name: 'bowser', key: '7' },
-  ]);
+ const[toDos,setToDos]=useState([
+  {text:"Buy a Coffee",key:"1"},
+  {text:"Create an App",key:"2"},
+  {text:"Play on the switch",key:"3"}
 
-  const pressHandler=(id)=>
-  {
-    console.log(id);
-  }
+ ]);
  
   return (
     <View style={styles.container}>
-
-      <FlatList
-     
-      data={people}
-      renderItem={({item})=>
-      (
-        <TouchableOpacity onPress={()=>pressHandler(item.key)}>
-        <Text style={styles.item}>{item.name}</Text>
-        </TouchableOpacity>
-      )
-      }
-      
-      
-      />
-
+      {/*HEADER*/}
+    <View style={styles.content}> 
+      {/*TO FORM*/}
+    <View style={styles.list}>
+    <FlatList
+    data={toDos}
+    renderItem={({item})=>
+    (
+      <Text>{item.text}</Text>
+    )
+    }
+    
+    />
 
 
-     {/* <ScrollView>
-      {people.map((item)=>{
-        return(
-
-          <View  key={item.key}>
-            <Text style={styles.item}>{item.name}</Text>
-          </View>
-        )
-      })}
-      </ScrollView> */}
+    </View>
+    </View>
     </View>
   );
 }
@@ -55,18 +37,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //alignItems: 'center',
-    //justifyContent: 'center',
-    paddingTop:40,
-    paddingHorizontal:20
+    
   },
-  item:
+  content:
   {
-    marginTop:40,
-    padding:30,
-    backgroundColor:"pink",
-    fontSize:25,
+    padding:40,
+  },
+  list:
+  {
+    marginTop:20,
   }
+ 
  
 });
  
