@@ -2,6 +2,7 @@
 import { StyleSheet, Text, View,FlatList} from 'react-native';
 import React,{useState} from 'react';
 import Header from './components/Header';
+import ToDoItem from './components/ToDoItem';
 export default function App() {
  const[toDos,setToDos]=useState([
   {text:"Buy a Coffee",key:"1"},
@@ -20,7 +21,7 @@ export default function App() {
     data={toDos}
     renderItem={({item})=>
     (
-      <Text>{item.text}</Text>
+      <ToDoItem item={item}/>
     )
     }
     
