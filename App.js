@@ -3,6 +3,10 @@ import { StyleSheet, Text, View,FlatList} from 'react-native';
 import React,{useState} from 'react';
 import Header from './components/Header';
 import ToDoItem from './components/ToDoItem';
+import AddToDo from './components/AddToDo';
+
+
+
 export default function App() {
  const[toDos,setToDos]=useState([
   {text:"Buy a Coffee",key:"1"},
@@ -17,12 +21,24 @@ export default function App() {
     return prevToDos.filter(todo=>todo.key!=key)
   })
  }
+ const submitToDo=(text)=>
+ {
+  setToDos((prevToDos)=>
+  {
+    return 
+    [
+      {text:text,key:Math.random().toString()},
+      ...prevToDos
+    ]
+   
+  })
+ }
  
   return (
     <View style={styles.container}>
       <Header/>
     <View style={styles.content}> 
-      {/*TO FORM*/}
+      <AddToDo/>
     <View style={styles.list}>
     <FlatList
     data={toDos}
