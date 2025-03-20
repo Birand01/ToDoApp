@@ -1,9 +1,9 @@
 import { View, Text,StyleSheet,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function ToDoItem({item}) {
+export default function ToDoItem({item,pressHandler}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>pressHandler(item.key)}>
         <Text style={styles.item}>{item.text}</Text>
     </TouchableOpacity>
   )

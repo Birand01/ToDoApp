@@ -10,6 +10,13 @@ export default function App() {
   {text:"Play on the switch",key:"3"}
 
  ]);
+
+ const pressHandler=(key)=>
+ {
+  setToDos((prevToDos)=>{
+    return prevToDos.filter(todo=>todo.key!=key)
+  })
+ }
  
   return (
     <View style={styles.container}>
@@ -21,7 +28,7 @@ export default function App() {
     data={toDos}
     renderItem={({item})=>
     (
-      <ToDoItem item={item}/>
+      <ToDoItem item={item} pressHandler={pressHandler}/>
     )
     }
     
