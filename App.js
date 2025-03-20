@@ -1,7 +1,7 @@
 
 import { StyleSheet, Text, View,FlatList} from 'react-native';
 import React,{useState} from 'react';
-
+import Header from './components/Header';
 export default function App() {
  const[toDos,setToDos]=useState([
   {text:"Buy a Coffee",key:"1"},
@@ -12,7 +12,7 @@ export default function App() {
  
   return (
     <View style={styles.container}>
-      {/*HEADER*/}
+      <Header/>
     <View style={styles.content}> 
       {/*TO FORM*/}
     <View style={styles.list}>
