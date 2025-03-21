@@ -6,6 +6,7 @@ import React,{useState} from 'react';
 import Header from './components/Header';
 import ToDoItem from './components/ToDoItem';
 import AddToDo from './components/AddToDo';
+import Sandbox from './components/Sandbox';
 
 
 
@@ -44,7 +45,10 @@ export default function App() {
  }
  
   return (
-    <TouchableWithoutFeedback onPress={()=>
+
+    <Sandbox/>
+
+    /*<TouchableWithoutFeedback onPress={()=>
       Keyboard.dismiss()
     }>
     <View style={styles.container}>
@@ -67,7 +71,7 @@ export default function App() {
     </View>
     </View>
     </TouchableWithoutFeedback>
-  );
+  );*/)
 }
 
 const styles = StyleSheet.create({
