@@ -46,9 +46,9 @@ export default function App() {
  
   return (
 
-    <Sandbox/>
+   // <Sandbox/>
 
-    /*<TouchableWithoutFeedback onPress={()=>
+    <TouchableWithoutFeedback onPress={()=>
       Keyboard.dismiss()
     }>
     <View style={styles.container}>
@@ -71,7 +71,7 @@ export default function App() {
     </View>
     </View>
     </TouchableWithoutFeedback>
-  );*/)
+  );
 }
 
 const styles = StyleSheet.create({
@@ -82,10 +82,14 @@ const styles = StyleSheet.create({
   },
   content:
   {
+    flex:1,
     padding:40,
+   
   },
   list:
   {
+    flex:1,
+    marginTop:20,
     marginTop:20,
   }
  
